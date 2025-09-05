@@ -1,0 +1,29 @@
+# Render.com Deployment Configuration
+services:
+  - type: web
+    name: it-insights-blog
+    env: static
+    buildCommand: echo "No build required for static site"
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - key: X-Frame-Options
+        value: DENY
+      - key: X-Content-Type-Options
+        value: nosniff
+      - key: X-XSS-Protection
+        value: "1; mode=block"
+      - key: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - key: Permissions-Policy
+        value: "camera=(), microphone=(), geolocation=()"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SITE_NAME
+        value: "IT Insights by Mihir Patel"
+      - key: SITE_URL
+        value: "https://insights.patelmihir.com"

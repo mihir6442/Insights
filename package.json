@@ -1,0 +1,144 @@
+{
+  "name": "it-insights-blog",
+  "version": "1.0.0",
+  "description": "Professional IT insights blog with comprehensive admin dashboard for cybersecurity and technology content",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "dev": "npx serve . -p 3000",
+    "build": "echo 'No build process required - static files'",
+    "test": "echo 'Testing: Admin login, search, themes, responsiveness'",
+    "deploy": "echo 'Deploy to your chosen platform (Render/Netlify/Vercel)'",
+    "lint": "echo 'No linting configured - vanilla HTML/CSS/JS'",
+    "validate": "echo 'Validating HTML structure and performance'"
+  },
+  "keywords": [
+    "blog",
+    "it-security",
+    "cybersecurity", 
+    "microsoft",
+    "azure",
+    "powershell",
+    "technology",
+    "admin-dashboard",
+    "cms",
+    "static-site",
+    "responsive",
+    "modern"
+  ],
+  "author": {
+    "name": "Mihir Patel",
+    "email": "admin@patelmihir.com",
+    "url": "https://insights.patelmihir.com"
+  },
+  "license": "MIT",
+  "homepage": "https://insights.patelmihir.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihirpatel/it-insights-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mihirpatel/it-insights-blog/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 11"
+  ],
+  "config": {
+    "siteName": "IT Insights by Mihir Patel",
+    "siteUrl": "https://insights.patelmihir.com",
+    "adminUsername": "admin",
+    "adminPassword": "admin123",
+    "theme": "light",
+    "postsPerPage": 8,
+    "enableComments": true,
+    "enableNewsletter": true,
+    "enableDarkMode": true,
+    "enableSearch": true,
+    "enableAnalytics": true
+  },
+  "deployment": {
+    "platforms": [
+      "render.com",
+      "netlify.com", 
+      "vercel.com",
+      "github-pages"
+    ],
+    "requirements": {
+      "https": true,
+      "customDomain": true,
+      "ssl": "automatic",
+      "headers": "security",
+      "compression": true
+    }
+  },
+  "features": {
+    "public": [
+      "Responsive design",
+      "Dark/light themes",
+      "Real-time search",
+      "Category filtering",
+      "Social sharing",
+      "Newsletter signup",
+      "SEO optimized",
+      "PWA ready"
+    ],
+    "admin": [
+      "Secure authentication",
+      "Post management",
+      "Analytics dashboard", 
+      "User management",
+      "Comment moderation",
+      "Media management",
+      "Site settings",
+      "Content scheduling"
+    ],
+    "technical": [
+      "Syntax highlighting",
+      "Code snippets",
+      "Technical templates",
+      "Equipment reviews",
+      "Troubleshooting guides"
+    ]
+  },
+  "performance": {
+    "targets": {
+      "firstContentfulPaint": "< 1.8s",
+      "largestContentfulPaint": "< 2.5s",
+      "firstInputDelay": "< 100ms",
+      "cumulativeLayoutShift": "< 0.1",
+      "timeToInteractive": "< 3s"
+    }
+  },
+  "seo": {
+    "features": [
+      "Meta tags optimization",
+      "Open Graph integration",
+      "Twitter Cards",
+      "Structured data",
+      "XML sitemap",
+      "Robots.txt",
+      "Canonical URLs"
+    ]
+  },
+  "security": {
+    "headers": [
+      "X-Frame-Options: DENY",
+      "X-Content-Type-Options: nosniff", 
+      "X-XSS-Protection: 1; mode=block",
+      "Referrer-Policy: strict-origin-when-cross-origin"
+    ],
+    "authentication": "Built-in admin system",
+    "validation": "Input sanitization",
+    "https": "Required for production"
+  }
+}

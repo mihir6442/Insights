@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Insights by Mihir Patel - Professional Technology Blog</title>
+    <meta name="description" content="Professional insights on IT security, Microsoft technologies, and industry trends by Mihir Patel">
+    <meta name="keywords" content="IT, cybersecurity, Microsoft, Azure, PowerShell, technology news">
+    <meta name="author" content="Mihir Patel">
+    
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="IT Insights by Mihir Patel">
+    <meta property="og:description" content="Professional insights on IT security, Microsoft technologies, and industry trends">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://insights.patelmihir.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🖥️%3C/text%3E%3C/svg%3E">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>Loading IT Insights...</p>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <h1 class="brand-title">IT Insights</h1>
+                    <span class="brand-subtitle">by Mihir Patel</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" data-page="home">
+                            <i data-feather="home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            <i data-feather="folder"></i>
+                            <span>Categories</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-link" data-category="it-security">
+                                <i data-feather="shield"></i>
+                                IT Security
+                            </a></li>
+                            <li><a href="#" class="dropdown-link" data-category="microsoft-updates">
+                                <i data-feather="monitor"></i>
+                                Microsoft Updates
+                            </a></li>
+                            <li><a href="#" class="dropdown-link" data-category="tech-tips">
+                                <i data-feather="zap"></i>
+                                Tech Tips
+                            </a></li>
+                            <li><a href="#" class="dropdown-link" data-category="reviews">
+                                <i data-feather="star"></i>
+                                Reviews
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-page="about">
+                            <i data-feather="user"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-page="admin">
+                            <i data-feather="settings"></i>
+                            <span>Admin</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="nav-controls">
+                    <div class="search-wrapper">
+                        <div class="search-container">
+                            <i data-feather="search" class="search-icon"></i>
+                            <input type="text" id="search-input" placeholder="Search articles..." class="search-input">
+                            <div class="search-results" id="search-results"></div>
+                        </div>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <i data-feather="moon" class="theme-icon"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Homepage -->
+        <section id="home-page" class="page page-active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Professional IT Insights & Analysis</h1>
+                        <p class="hero-subtitle">Stay ahead with expert coverage of cybersecurity, Microsoft technologies, and industry trends</p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number">249</span>
+                                <span class="stat-label">Articles</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">127K+</span>
+                                <span class="stat-label">Views</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">3.2K+</span>
+                                <span class="stat-label">Subscribers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Posts -->
+            <section class="featured-posts">
+                <div class="container">
+                    <h2 class="section-title">Featured Articles</h2>
+                    <div class="posts-grid featured-grid" id="featured-posts">
+                        <!-- Featured posts will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest Posts -->
+            <section class="latest-posts">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Latest Posts</h2>
+                        <div class="category-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="it-security">IT Security</button>
+                            <button class="filter-btn" data-filter="microsoft-updates">Microsoft</button>
+                            <button class="filter-btn" data-filter="tech-tips">Tech Tips</button>
+                            <button class="filter-btn" data-filter="reviews">Reviews</button>
+                        </div>
+                    </div>
+                    <div class="posts-grid" id="posts-grid">
+                        <!-- Posts will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter Signup -->
+            <section class="newsletter">
+                <div class="container">
+                    <div class="newsletter-content">
+                        <h2>Stay Updated</h2>
+                        <p>Get the latest IT insights and industry updates delivered to your inbox</p>
+                        <form class="newsletter-form" id="newsletter-form">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn--primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Post Page -->
+        <section id="post-page" class="page">
+            <div class="container">
+                <article class="post-article" id="post-content">
+                    <!-- Post content will be populated by JavaScript -->
+                </article>
+                
+                <!-- Comments Section -->
+                <section class="comments-section">
+                    <h3>Comments</h3>
+                    <div class="comment-form">
+                        <h4>Leave a Comment</h4>
+                        <form id="comment-form">
+                            <div class="form-group">
+                                <input type="text" id="comment-name" placeholder="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="comment-email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="comment-content" placeholder="Your comment..." rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary">Post Comment</button>
+                        </form>
+                    </div>
+                    <div class="comments-list" id="comments-list">
+                        <!-- Comments will be populated by JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about-page" class="page">
+            <div class="container">
+                <div class="about-content">
+                    <h1>About IT Insights</h1>
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <p>Welcome to IT Insights by Mihir Patel, your trusted source for professional technology analysis and industry expertise. With over a decade of experience in enterprise IT environments, I share practical insights on cybersecurity, Microsoft technologies, and emerging tech trends.</p>
+                            
+                            <h2>What You'll Find Here</h2>
+                            <ul>
+                                <li><strong>IT Security:</strong> Latest cybersecurity threats, best practices, and compliance guidance</li>
+                                <li><strong>Microsoft Updates:</strong> Windows, Office 365, and Azure announcements and analysis</li>
+                                <li><strong>Tech Tips:</strong> Practical tutorials, scripts, and troubleshooting guides</li>
+                                <li><strong>Reviews:</strong> In-depth software and hardware evaluations for IT professionals</li>
+                            </ul>
+                            
+                            <h2>Connect With Me</h2>
+                            <div class="social-links">
+                                <a href="https://twitter.com/patelmihir" target="_blank" class="social-link">
+                                    <i data-feather="twitter"></i> Twitter
+                                </a>
+                                <a href="https://linkedin.com/in/patelmihir" target="_blank" class="social-link">
+                                    <i data-feather="linkedin"></i> LinkedIn
+                                </a>
+                                <a href="https://github.com/patelmihir" target="_blank" class="social-link">
+                                    <i data-feather="github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                        <div class="about-sidebar">
+                            <div class="author-card">
+                                <div class="author-avatar">MP</div>
+                                <h3>Mihir Patel</h3>
+                                <p class="author-title">IT Security Specialist & Technology Analyst</p>
+                                <div class="author-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">10+</span>
+                                        <span class="stat-label">Years Experience</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">249</span>
+                                        <span class="stat-label">Articles Published</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Login -->
+        <section id="admin-login" class="page">
+            <div class="admin-container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <h1 class="login-title">Admin Panel</h1>
+                        <p class="login-subtitle">Please sign in to access the admin dashboard</p>
+                    </div>
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" id="username" class="form-control" required placeholder="admin">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" class="form-control" required placeholder="admin123">
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+                    </form>
+                    <div id="login-error" class="login-error hidden"></div>
+                    <div class="login-help">
+                        <p><strong>Demo Credentials:</strong></p>
+                        <p>Username: <code>admin</code> | Password: <code>admin123</code></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Dashboard -->
+        <section id="admin-dashboard" class="page">
+            <div class="admin-layout">
+                <aside class="admin-sidebar" id="admin-sidebar">
+                    <div class="sidebar-header">
+                        <h2>Admin Panel</h2>
+                        <button id="admin-logout" class="btn btn--outline btn--sm">
+                            <i data-feather="log-out"></i> Logout
+                        </button>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <a href="#" class="sidebar-link sidebar-link-active" data-admin-page="dashboard">
+                            <i data-feather="bar-chart-2"></i> Dashboard
+                        </a>
+                        <a href="#" class="sidebar-link" data-admin-page="posts">
+                            <i data-feather="edit"></i> Posts
+                        </a>
+                        <a href="#" class="sidebar-link" data-admin-page="comments">
+                            <i data-feather="message-circle"></i> Comments
+                        </a>
+                        <a href="#" class="sidebar-link" data-admin-page="analytics">
+                            <i data-feather="trending-up"></i> Analytics
+                        </a>
+                        <a href="#" class="sidebar-link" data-admin-page="users">
+                            <i data-feather="users"></i> Users
+                        </a>
+                        <a href="#" class="sidebar-link" data-admin-page="settings">
+                            <i data-feather="settings"></i> Settings
+                        </a>
+                    </nav>
+                </aside>
+
+                <main class="admin-content">
+                    <!-- Dashboard Overview -->
+                    <div id="admin-dashboard-page" class="admin-page admin-page-active">
+                        <div class="admin-header">
+                            <h1>Dashboard Overview</h1>
+                            <p>Welcome back! Here's what's happening with your blog.</p>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i data-feather="eye"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>127,890</h3>
+                                    <p>Total Views</p>
+                                    <span class="stat-change positive">+12% this month</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i data-feather="edit"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>249</h3>
+                                    <p>Total Posts</p>
+                                    <span class="stat-change positive">+3 this week</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i data-feather="message-circle"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>892</h3>
+                                    <p>Comments</p>
+                                    <span class="stat-change positive">+8% this month</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i data-feather="users"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>3,247</h3>
+                                    <p>Subscribers</p>
+                                    <span class="stat-change positive">+15% this month</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-grid">
+                            <div class="chart-container">
+                                <h3>Monthly Views</h3>
+                                <div class="chart-wrapper" style="position: relative; height: 300px;">
+                                    <canvas id="viewsChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="recent-activity">
+                                <h3>Recent Activity</h3>
+                                <div class="activity-list" id="recent-activity-admin">
+                                    <!-- Recent activity will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recent-posts-section">
+                            <h3>Recent Posts</h3>
+                            <div class="recent-posts-list" id="recent-posts-admin">
+                                <!-- Recent posts will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Posts Management -->
+                    <div id="admin-posts-page" class="admin-page">
+                        <div class="admin-header">
+                            <h1>Posts Management</h1>
+                            <button class="btn btn--primary" id="new-post-btn">
+                                <i data-feather="plus"></i> New Post
+                            </button>
+                        </div>
+                        
+                        <div class="posts-table">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Views</th>
+                                        <th>Comments</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="posts-table-body">
+                                    <!-- Posts will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Comments Management -->
+                    <div id="admin-comments-page" class="admin-page">
+                        <div class="admin-header">
+                            <h1>Comments Management</h1>
+                            <div class="admin-filters">
+                                <button class="filter-btn active" data-status="all">All</button>
+                                <button class="filter-btn" data-status="pending">Pending</button>
+                                <button class="filter-btn" data-status="approved">Approved</button>
+                            </div>
+                        </div>
+                        <div class="comments-management" id="comments-management">
+                            <!-- Comments will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Analytics -->
+                    <div id="admin-analytics-page" class="admin-page">
+                        <div class="admin-header">
+                            <h1>Analytics & Reports</h1>
+                        </div>
+                        <div class="analytics-grid">
+                            <div class="chart-container">
+                                <h3>Category Performance</h3>
+                                <div class="chart-wrapper" style="position: relative; height: 300px;">
+                                    <canvas id="categoryChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="top-posts-list">
+                                <h3>Top Performing Posts</h3>
+                                <div id="top-posts-list">
+                                    <!-- Top posts will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analytics-insights">
+                            <h3>Key Insights</h3>
+                            <div class="insights-grid" id="analytics-insights">
+                                <!-- Analytics insights will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Users Management -->
+                    <div id="admin-users-page" class="admin-page">
+                        <div class="admin-header">
+                            <h1>User Management</h1>
+                            <button class="btn btn--primary" id="new-user-btn">
+                                <i data-feather="user-plus"></i> Add User
+                            </button>
+                        </div>
+                        <div class="users-table">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Posts</th>
+                                        <th>Last Login</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-table-body">
+                                    <!-- Users will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Settings -->
+                    <div id="admin-settings-page" class="admin-page">
+                        <div class="admin-header">
+                            <h1>Site Settings</h1>
+                        </div>
+                        <div class="settings-tabs">
+                            <div class="tab-nav">
+                                <button class="tab-btn active" data-tab="general">General</button>
+                                <button class="tab-btn" data-tab="social">Social</button>
+                                <button class="tab-btn" data-tab="features">Features</button>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="general-tab">
+                                    <form id="general-settings-form">
+                                        <div class="form-group">
+                                            <label class="form-label">Site Name</label>
+                                            <input type="text" class="form-control" value="IT Insights by Mihir Patel">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Site Description</label>
+                                            <textarea class="form-control" rows="3">Professional insights on IT security, Microsoft technologies, and industry trends</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Site URL</label>
+                                            <input type="url" class="form-control" value="https://insights.patelmihir.com">
+                                        </div>
+                                        <button type="submit" class="btn btn--primary">Save Settings</button>
+                                    </form>
+                                </div>
+                                <div class="tab-pane" id="social-tab">
+                                    <form id="social-settings-form">
+                                        <div class="form-group">
+                                            <label class="form-label">Twitter URL</label>
+                                            <input type="url" class="form-control" value="https://twitter.com/patelmihir">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">LinkedIn URL</label>
+                                            <input type="url" class="form-control" value="https://linkedin.com/in/patelmihir">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">GitHub URL</label>
+                                            <input type="url" class="form-control" value="https://github.com/patelmihir">
+                                        </div>
+                                        <button type="submit" class="btn btn--primary">Save Settings</button>
+                                    </form>
+                                </div>
+                                <div class="tab-pane" id="features-tab">
+                                    <form id="features-settings-form">
+                                        <div class="form-group">
+                                            <label class="form-label">
+                                                <input type="checkbox" checked> Enable Newsletter
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">
+                                                <input type="checkbox" checked> Enable Comments
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">
+                                                <input type="checkbox" checked> Moderate Comments
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="btn btn--primary">Save Settings</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </main>
+
+    <!-- Post Editor Modal -->
+    <div id="post-editor-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Post Editor</h2>
+                <button class="modal-close" id="editor-close">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="post-editor-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Title</label>
+                            <input type="text" id="post-title" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <select id="post-category" class="form-control" required>
+                                <option value="it-security">IT Security</option>
+                                <option value="microsoft-updates">Microsoft Updates</option>
+                                <option value="tech-tips">Tech Tips</option>
+                                <option value="reviews">Reviews</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Excerpt</label>
+                        <textarea id="post-excerpt" class="form-control" rows="3" placeholder="Brief description of the post..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Content</label>
+                        <textarea id="post-content-editor" class="form-control" rows="15" placeholder="Write your post content here..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Tags (comma separated)</label>
+                            <input type="text" id="post-tags" class="form-control" placeholder="security, tutorial, powershell">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <input type="checkbox" id="post-featured"> Featured Post
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn--outline" id="save-draft">Save Draft</button>
+                        <button type="submit" class="btn btn--primary">Publish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
