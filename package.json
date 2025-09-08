@@ -1,144 +1,41 @@
 {
   "name": "it-insights-blog",
   "version": "1.0.0",
-  "description": "Professional IT insights blog with comprehensive admin dashboard for cybersecurity and technology content",
-  "main": "index.html",
+  "description": "Professional IT Blog with MongoDB Atlas integration",
+  "main": "server.js",
   "scripts": {
-    "start": "npx serve . -p 3000",
-    "dev": "npx serve . -p 3000",
-    "build": "echo 'No build process required - static files'",
-    "test": "echo 'Testing: Admin login, search, themes, responsiveness'",
-    "deploy": "echo 'Deploy to your chosen platform (Render/Netlify/Vercel)'",
-    "lint": "echo 'No linting configured - vanilla HTML/CSS/JS'",
-    "validate": "echo 'Validating HTML structure and performance'"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'No build required for this setup'",
+    "test": "echo 'No tests specified'"
   },
   "keywords": [
     "blog",
-    "it-security",
-    "cybersecurity", 
-    "microsoft",
-    "azure",
-    "powershell",
-    "technology",
-    "admin-dashboard",
-    "cms",
-    "static-site",
-    "responsive",
-    "modern"
+    "nodejs",
+    "mongodb",
+    "express",
+    "it",
+    "cybersecurity",
+    "technology"
   ],
-  "author": {
-    "name": "Mihir Patel",
-    "email": "admin@patelmihir.com",
-    "url": "https://insights.patelmihir.com"
-  },
+  "author": "Mihir Patel",
   "license": "MIT",
-  "homepage": "https://insights.patelmihir.com",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mihirpatel/it-insights-blog.git"
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "express-rate-limit": "^6.8.1",
+    "helmet": "^7.0.0",
+    "dotenv": "^16.3.1",
+    "body-parser": "^1.20.2",
+    "morgan": "^1.10.0"
   },
-  "bugs": {
-    "url": "https://github.com/mihirpatel/it-insights-blog/issues"
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   },
   "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "serve": "^14.2.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 11"
-  ],
-  "config": {
-    "siteName": "IT Insights by Mihir Patel",
-    "siteUrl": "https://insights.patelmihir.com",
-    "adminUsername": "admin",
-    "adminPassword": "admin123",
-    "theme": "light",
-    "postsPerPage": 8,
-    "enableComments": true,
-    "enableNewsletter": true,
-    "enableDarkMode": true,
-    "enableSearch": true,
-    "enableAnalytics": true
-  },
-  "deployment": {
-    "platforms": [
-      "render.com",
-      "netlify.com", 
-      "vercel.com",
-      "github-pages"
-    ],
-    "requirements": {
-      "https": true,
-      "customDomain": true,
-      "ssl": "automatic",
-      "headers": "security",
-      "compression": true
-    }
-  },
-  "features": {
-    "public": [
-      "Responsive design",
-      "Dark/light themes",
-      "Real-time search",
-      "Category filtering",
-      "Social sharing",
-      "Newsletter signup",
-      "SEO optimized",
-      "PWA ready"
-    ],
-    "admin": [
-      "Secure authentication",
-      "Post management",
-      "Analytics dashboard", 
-      "User management",
-      "Comment moderation",
-      "Media management",
-      "Site settings",
-      "Content scheduling"
-    ],
-    "technical": [
-      "Syntax highlighting",
-      "Code snippets",
-      "Technical templates",
-      "Equipment reviews",
-      "Troubleshooting guides"
-    ]
-  },
-  "performance": {
-    "targets": {
-      "firstContentfulPaint": "< 1.8s",
-      "largestContentfulPaint": "< 2.5s",
-      "firstInputDelay": "< 100ms",
-      "cumulativeLayoutShift": "< 0.1",
-      "timeToInteractive": "< 3s"
-    }
-  },
-  "seo": {
-    "features": [
-      "Meta tags optimization",
-      "Open Graph integration",
-      "Twitter Cards",
-      "Structured data",
-      "XML sitemap",
-      "Robots.txt",
-      "Canonical URLs"
-    ]
-  },
-  "security": {
-    "headers": [
-      "X-Frame-Options: DENY",
-      "X-Content-Type-Options: nosniff", 
-      "X-XSS-Protection: 1; mode=block",
-      "Referrer-Policy: strict-origin-when-cross-origin"
-    ],
-    "authentication": "Built-in admin system",
-    "validation": "Input sanitization",
-    "https": "Required for production"
+    "node": ">=14.0.0"
   }
 }
